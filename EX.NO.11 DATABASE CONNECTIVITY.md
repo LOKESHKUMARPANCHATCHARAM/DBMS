@@ -1,20 +1,74 @@
-# Ex. No: 10 DATA BASE CONNECTIVITY USING  MYSQL AND JAVA
-### DATE: 
-### AIM: To create database connectivity and display the employee table 
+# EXP NO 1: ER DIAGRAM CREATION, RELATIONAL MODEL AND SCHEMA GENERATION  
+### DATE
+## AIM:
+<div align="justify">
+   To create a ER Diagram for Bank management system or College management system using ERD Plus tool and generate the relational model with schema. 
+</div>
 
-### Steps:
-1. Install mysql,visual studio,jdk, extensions of java pack.
-2. Create a employee table and insert the data into employee table  
-3. Create a new java project in visual studio.
-4. write a java progarm to perform the following 1.create a connection 2. fetch data and store it in result set 3. Display table rows. 4. Close the connection
-5. Deploy the jar file in lib folder 
-6. Run the program
+## Algorithm
+1. Create a login with https://erdplus.com.
+2. Create a new ER Diagram with name
+3. Create a strong entity, relation and attributes.
+4. Create a weak entity, relation and attributes.
+5. Specify attributes unique, multivalued and composite attributes.
 
-### Program:
+### Relational model
+![WhatsApp Image 2024-03-13 at 11 34 26_238cdf43](https://github.com/SivaramakrishnanBaskar/DBMS/assets/119476322/4583b70a-02cb-4ed9-a0e8-c1420b5e9904)
 
+### ER Diagram 
+![WhatsApp Image 2024-03-13 at 11 34 25_e4b030dc](https://github.com/SivaramakrishnanBaskar/DBMS/assets/119476322/d5c3f10d-1adb-4413-8f0d-58b9d6a47232)
 
-### Output:
+### SQL DDL Schema 
+```sql
+CREATE TABLE Employee
+(
+  FName INT NOT NULL,
+  LName INT NOT NULL,
+  Minit INT NOT NULL,
+  Address INT NOT NULL,
+  Salary INT NOT NULL,
+  Bdate INT NOT NULL,
+  Ssn INT NOT NULL,
+  Sex INT NOT NULL,
+  PRIMARY KEY (Ssn)
+);
 
+CREATE TABLE Department
+(
+  Name INT NOT NULL,
+  Number INT NOT NULL,
+  PRIMARY KEY (Name),
+  UNIQUE (Number)
+);
 
-### Result:
-Thust the database is connected and data displayed sucessfully.
+CREATE TABLE Project
+(
+  Location INT NOT NULL,
+  Name INT NOT NULL,
+  Number INT NOT NULL,
+  PRIMARY KEY (Name),
+  UNIQUE (Number)
+);
+
+CREATE TABLE Dependent
+(
+  Sex INT NOT NULL,
+  Relationship INT NOT NULL,
+  Birth_date INT NOT NULL,
+  Name INT NOT NULL,
+  PRIMARY KEY (Name)
+);
+
+CREATE TABLE Department_Locations
+(
+  Locations INT NOT NULL,
+  Name INT NOT NULL,
+  PRIMARY KEY (Locations, Name),
+  FOREIGN KEY (Name) REFERENCES Department(Name)
+);
+```
+
+## RESULT 
+<div align="justify">
+Thus the ER diagram was drawn and relational diagram, SQL DDL staements are generated using ERD plus tool.
+</div>
